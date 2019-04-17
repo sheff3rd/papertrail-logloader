@@ -1,6 +1,3 @@
-# require 'rubygems/package'
-# require 'zlib'
-
 require 'chilkat'
 
 BY_HOURS = Array(0..23).freeze
