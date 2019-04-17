@@ -1,0 +1,13 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    chilkat (9.5.0.73-x86-linux)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  chilkat
+
+BUNDLED WITH
+   1.16.6
