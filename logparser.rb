@@ -29,14 +29,18 @@ BY_HOURS.each do |hour|
 end
 
 target_file = if index.nil?
-                "./report-#{date}.csv"
+                "./reports/report-#{date}.csv"
               else
-                "./report-#{date}-#{index}.csv"
+                "./reports/report-#{date}-#{index}.csv"
               end
 
-CSV.open(target_file, 'wb') do |csv|
-  csv << ['File', 'Line number', 'Content']
+if found.empty?
+  p "No matches found for #{target_file}"
+else
+  CSV.open(target_file, 'wb') do |csv|
+    csv << ['File', 'Line number', 'Content']
 
-  found.each { |line| csv << line }
+    found.each { |line| csv << line }
+  end
+  p "Saved to #{target_file}"
 end
-p "Saved to #{target_file}"
