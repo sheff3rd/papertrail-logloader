@@ -7,6 +7,8 @@ date  = @args[:date]
 query = @args[:query]
 index = @args[:index]
 
+extra_query = @args[:extra_query]
+
 BY_HOURS = Array(0..23).freeze
 
 found = []
@@ -19,6 +21,10 @@ BY_HOURS.each do |hour|
 
   lines.each_with_index do |line, index|
     next unless line =~ /#{Regexp.escape(query)}/
+
+    if extra_query
+      next unless line =~ /#{Regexp.escape(extra_query)}/
+    end
 
     found << [
       "logs-#{date}-#{hour}",
