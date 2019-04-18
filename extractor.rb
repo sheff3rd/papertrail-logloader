@@ -2,7 +2,7 @@ class Extractor
   def self.extract_arguments!
     args = {}
     ARGV.each do |option|
-      split = option.split('=')
+      split = option.split('=', 2)
 
       key = split[0].gsub('--', '')
       value = split[1]
